@@ -36,6 +36,8 @@ API Requirements:
 1. Standard project setup (config, package.json, etc.)
 1. Include `.travis.yml` and script:
     ```json
+    "lint": "eslint .",
+    "pretest": "npm run lint",
     "test": "echo \"Testing coming tomorrow!\" && exit 0"
     ```
 1. Organize 
