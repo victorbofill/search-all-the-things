@@ -42,7 +42,6 @@ API Requirements:
     - components into separate files
     - css by component
 1. Components
-    - Include propTypes
     - Lift state
     - Data down, events up
 1. Keep code clean
