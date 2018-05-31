@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Characters.css';
 
 export default class Characters extends Component {
   state = {

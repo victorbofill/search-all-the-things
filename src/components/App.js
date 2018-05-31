@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import logo from './logo.jpg';
 import Paging from './Paging';
 import { searchCharacters } from '../services/rmAPI';
 import SearchCharacters from './SearchCharacters';
@@ -43,6 +44,7 @@ export default class App extends Component {
 
     return (
       <main>
+        <header><img src={logo} /></header>
         <fieldset>
           <div className="search-characters-container">
             <SearchCharacters onSearch={this.handleSearchCharacters}/>

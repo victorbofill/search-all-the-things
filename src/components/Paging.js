@@ -19,8 +19,8 @@ export default class Paging extends Component {
     return (
       <div>
         <p>Search &quot;{search}&quot; returned {totalResults} results. Displaying results {lowRange} through {highRange}</p>
-        <button onClick={() => this.handlePage(-1)} disabled={page <= 1}>prev</button>
         <p>Displaying page {page} of {totalPages}.</p>
+        <button onClick={() => this.handlePage(-1)} disabled={page <= 1}>prev</button>
         <button onClick={() => this.handlePage(+1)} disabled={page === totalPages}>next</button>
       </div>
     );
