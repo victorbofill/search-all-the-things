@@ -1,0 +1,19 @@
+{
+  "name": "search-all-the-things",
+  "version": "1.0.0",
+  "description": "A React-based app for searching an API",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorbofill/search-all-the-things.git"
+  },
+  "author": "Victor Bofill <victorm.bofill@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/victorbofill/search-all-the-things/issues"
+  },
+  "homepage": "https://github.com/victorbofill/search-all-the-things#readme"
+}
