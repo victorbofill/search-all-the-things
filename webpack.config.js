@@ -1,8 +1,9 @@
+/* eslint-env node */
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 
 const buildDir = 'docs';
-const path = `${__dirname}/${buildDir}`
+const path = `${__dirname}/${buildDir}`;
 
 module.exports = {
   entry: './src/index.js',
