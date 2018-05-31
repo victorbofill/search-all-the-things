@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './App.css';
+import './App.css';
 import Paging from './Paging';
 import { searchCharacters } from '../services/rmAPI';
 import SearchCharacters from './SearchCharacters';
