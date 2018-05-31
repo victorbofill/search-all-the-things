@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import styles from './App.css';
 import { searchCharacters } from '../services/rmAPI';
-import Characters from './Characters';
+import SearchCharacters from './SearchCharacters';
+import CharacterResults from './CharacterResults';
 
 export default class App extends Component {
   state = {
     loading: false,
     character: '',
-    name: null,
-    species: null,
-    origin: null,
-    image: null,
-    location: null,
     error: null,
-    page: 1
+    page: 1,
+    characterResults: []
   };
 
   searchCharacters = () => {
@@ -22,8 +19,8 @@ export default class App extends Component {
     this.setState({ loading: true });
 
     searchCharacters({ character }, { page })
-      .then(({ name, species, origin, image, location }) => {
-        this.setState({ name, species, origin, image, location, error: null });
+      .then(({ results }) => {
+        this.setState({ characterResults: results, error: null });
       }, error => {
         this.setState({ error });
       })
@@ -35,17 +32,21 @@ export default class App extends Component {
   };
 
   render() {
-    const { loading } = this.state;
-    
+    const { loading, characterResults, error } = this.state;
+
     return (
       <main>
         <fieldset>
           <div className="search-characters-container">
-            <Characters onSearch={this.handleSearchCharacters}/>
+            <SearchCharacters onSearch={this.handleSearchCharacters}/>
           </div>
         </fieldset>
-        <section className="loading">
+        <section className="notifications">
           {loading && <div>Loading...</div>}
+          {error && <div>Error: {error.message}</div>}
+        </section>
+        <section className="character-results">
+          <CharacterResults characterResults={characterResults}/>
         </section>
       </main>
     );
