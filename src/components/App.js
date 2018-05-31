@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './App.css';
+import Paging from './Paging';
 import { searchCharacters } from '../services/rmAPI';
 import SearchCharacters from './SearchCharacters';
 import CharacterResults from './CharacterResults';
@@ -10,7 +11,9 @@ export default class App extends Component {
     character: '',
     error: null,
     page: 1,
-    characterResults: []
+    characterResults: [],
+    totalResults: null,
+    pages: null
   };
 
   searchCharacters = () => {
@@ -19,8 +22,8 @@ export default class App extends Component {
     this.setState({ loading: true });
 
     searchCharacters({ character }, { page })
-      .then(({ results }) => {
-        this.setState({ characterResults: results, error: null });
+      .then(({ info, results }) => {
+        this.setState({ characterResults: results, error: null, totalResults: info.count, pages: info.pages });
       }, error => {
         this.setState({ error });
       })
@@ -31,8 +34,12 @@ export default class App extends Component {
     this.setState({ character: search }, this.searchCharacters);
   };
 
+  handlePage = ({ page }) => {
+    this.setState({ page }, this.searchCharacters);
+  };
+
   render() {
-    const { loading, characterResults, error } = this.state;
+    const { loading, characterResults, error, totalResults, page } = this.state;
 
     return (
       <main>
@@ -41,8 +48,15 @@ export default class App extends Component {
             <SearchCharacters onSearch={this.handleSearchCharacters}/>
           </div>
         </fieldset>
+        <section>
+          <Paging
+            totalResults={totalResults}
+            page={page}
+            onPage={this.handlePage}
+          />
+        </section>
         <section className="notifications">
-          {loading && <div>Loading...</div>}
+          {loading && <div className="loading">Loading...</div>}
           {error && <div>Error: {error.message}</div>}
         </section>
         <section className="character-results">

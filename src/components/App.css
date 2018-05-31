@@ -1,0 +1,10 @@
+.loading {
+  background-color: white;
+  font-size: 2em;
+  font-weight: bold;
+  height: 100%;
+  opacity: .75;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}

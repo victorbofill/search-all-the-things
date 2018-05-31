@@ -7,7 +7,7 @@ const get = url => fetch(url)
 
 export function searchCharacters({ character }, { page = 1 }) {
   const search = `?name=${character}`;
-  const paging = `?page=${page}`;
+  const paging = `page=${page}`;
 
   return  get(`${BASE_URL}${CHARACTERS_URL}${search}&${paging}`);
 }
