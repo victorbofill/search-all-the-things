@@ -39,7 +39,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { loading, characterResults, error, totalResults, page } = this.state;
+    const { loading, characterResults, error, totalResults, page, character } = this.state;
 
     return (
       <main>
@@ -49,11 +49,14 @@ export default class App extends Component {
           </div>
         </fieldset>
         <section>
-          <Paging
-            totalResults={totalResults}
-            page={page}
-            onPage={this.handlePage}
-          />
+          {character && 
+                      <Paging
+                        totalResults={totalResults}
+                        page={page}
+                        search={character}
+                        onPage={this.handlePage}
+                      />
+          }
         </section>
         <section className="notifications">
           {loading && <div className="loading">Loading...</div>}
