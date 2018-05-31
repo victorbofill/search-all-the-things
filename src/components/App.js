@@ -35,6 +35,8 @@ export default class App extends Component {
   };
 
   render() {
+    const { loading } = this.state;
+    
     return (
       <main>
         <fieldset>
@@ -42,6 +44,9 @@ export default class App extends Component {
             <Characters onSearch={this.handleSearchCharacters}/>
           </div>
         </fieldset>
+        <section className="loading">
+          {loading && <div>Loading...</div>}
+        </section>
       </main>
     );
   }
