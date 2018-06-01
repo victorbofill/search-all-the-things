@@ -5,8 +5,8 @@
   float: left;
   list-style-type: none;
   margin: .5em;
-  padding: .5em;
   max-width: 300px;
+  padding: .5em;
 }
 
 :local(.results-li) th {
@@ -14,9 +14,9 @@
 }
 
 :local(.results-li) h2 {
-  position: absolute;
   background-color: rgb(34, 34, 34, .75);
   margin: 0;
+  position: absolute;
 }
 
 :local(.results-li) td {
@@ -30,8 +30,4 @@
 :local(.results-li) td:nth-child(2) {
   color: orange;
   text-align: right;
-}
-
-li img {
-  box-shadow: 3px 3px 2px black;
 }
