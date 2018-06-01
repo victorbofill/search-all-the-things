@@ -1,11 +1,23 @@
 :local(.results-li) {
-  border: 1px solid black;
+  border-radius: 5px 5px;
+  background-color: #222222;
+  box-shadow: 3px 3px black;
   float: left;
   list-style-type: none;
   margin: .5em;
   padding: .5em;
 }
 
-li img {
-  box-shadow: 3px 3px 2px black;
+:local(.results-li) h2 {
+  color: white;
+}
+
+:local(.results-li) p {
+  color: orange;
+}
+
+:local(.results-li) p:nth-child(2) {
+  font-weight: bold;
+  color: orange;
+  font-size: 1.3em;
 }
