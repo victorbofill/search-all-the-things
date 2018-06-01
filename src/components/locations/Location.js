@@ -7,7 +7,7 @@ export default class Locations extends Component {
 
     return (
       <li className={styles['results-li']}>
-        <h2>Name: {name}</h2>
+        <h2>{name}</h2>
         <p>Type: {type}</p>
         <p>Dimension: {dimension}</p>
       </li>
