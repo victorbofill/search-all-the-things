@@ -1,0 +1,12 @@
+:local(.api-link) {
+  color: orange;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #222222;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: .5em;
+  margin-top: .5em;
+
+}

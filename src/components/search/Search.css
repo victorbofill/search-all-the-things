@@ -1,0 +1,7 @@
+:local(.search-form) {
+  background-color: #222222;
+  color: orange;
+  font-weight: bold;
+  padding: 1em;
+  border:none;
+}

@@ -7,11 +7,28 @@ export default class Characters extends Component {
 
     return (
       <li className={styles['results-li']}>
-        <h2>Name: {name}</h2>
-        <p>Species: {species}</p>
-        <p>Origin: {origin.name}</p>
-        <p>Last Known Location: {location.name}</p>
-        <img src={image}/>
+        <table>
+          <thead>
+            <tr>
+              <th colspan="2">
+                <h2>{name}</h2>
+                <img src={image}/>
+              </th>
+            </tr>
+          </thead>
+          <tr>
+            <td>SPECIES</td>
+            <td>{species}</td>
+          </tr>
+          <tr>
+            <td>ORIGIN</td>
+            <td>{origin.name}</td>
+          </tr>
+          <tr>
+            <td>LAST KNOWN LOCATION</td>
+            <td>{location.name}</td>
+          </tr>
+        </table>
       </li>
     );
   }

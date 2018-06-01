@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './Search.css';
 
 export default class Search extends Component {
   state = {
@@ -19,11 +20,11 @@ export default class Search extends Component {
 
     return (
       <form
-        class-name="search-form"
+        className={styles['search-form']}
         onSubmit={event => this.handleSubmit(event)}
       >
         <label>
-          Squanch the Rick and Morty API:
+          SQUANCH THE RICK AND MORTY API:
           <input value={search} onChange={this.handleChange}/>
         </label>
         <button>Squanch</button>

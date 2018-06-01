@@ -1,0 +1,15 @@
+:local(.paging) {
+  background-color: #222222;
+  border-radius: 5px 5px;
+  color: orange;
+  font-weight: bold;
+}
+
+:local(.paging) p {
+  margin: .3em;
+  padding: .3em;
+}
+
+:local(.paging) button {
+  margin: .3em;
+}
