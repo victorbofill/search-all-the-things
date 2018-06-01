@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+// import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import logo from './logo.jpg';
 import Paging from './Paging';
 import { searchCharacters } from '../services/rmAPI';
+// import { searchCharacters, searchEpisodes, searchLocations } from '../services/rmAPI';
 import SearchCharacters from './SearchCharacters';
 import CharacterResults from './CharacterResults';
 
@@ -11,6 +12,8 @@ export default class App extends Component {
   state = {
     loading: false,
     character: '',
+    episode: '',
+    location: '',
     error: null,
     page: 1,
     characterResults: [],
@@ -18,7 +21,7 @@ export default class App extends Component {
     pages: null
   };
 
-  searchCharacters = () => {
+  characterSearch = () => {
     const { character, page } = this.state;
 
     this.setState({ loading: true });
@@ -32,12 +35,12 @@ export default class App extends Component {
       .then(() => this.setState({ loading: false }));
   };
 
-  handleSearchCharacters = ({ search }) => {
-    this.setState({ character: search }, this.searchCharacters);
+  handleCharacterSearch = ({ search }) => {
+    this.setState({ character: search }, this.characterSearch);
   };
 
   handlePage = ({ page }) => {
-    this.setState({ page }, this.searchCharacters);
+    this.setState({ page }, this.characterSearch);
   };
 
   render() {
@@ -46,9 +49,11 @@ export default class App extends Component {
     return (
       <main>
         <header><img src={logo} /></header>
+
+
         <fieldset>
           <div className="search-characters-container">
-            <SearchCharacters onSearch={this.handleSearchCharacters}/>
+            <SearchCharacters onSearch={this.handleCharacterSearch}/>
           </div>
         </fieldset>
         <section>
