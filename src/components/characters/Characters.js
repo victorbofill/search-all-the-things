@@ -38,7 +38,7 @@ export default class Characters extends Component {
   };
 
   render() {
-    const { search, totalResults, page, error, loading, characterResults } = this.props;
+    const { search, totalResults, page, error, loading, characterResults } = this.state;
 
     return (
       <section className="character-container">
