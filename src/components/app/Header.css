@@ -1,0 +1,14 @@
+:local(.navbar-li) {
+  float: left;
+  list-style-type: none;
+  margin-right: 1em;
+  font-size: 1.5em;
+}
+
+header {
+  margin-bottom: 1em;
+}
+
+header img {
+  max-height: 10em;
+}

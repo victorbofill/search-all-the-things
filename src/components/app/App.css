@@ -1,14 +1,3 @@
-header {
-  height: 10em;
-  margin-bottom: 1em;
-  max-width: 100%;
-}
-
-header img {
-  max-height: 10em;
-  display: block;
-}
-
 .loading {
   background-color: white;
   font-size: 2em;
@@ -19,3 +8,5 @@ header img {
   width: 100%;
   z-index: 1;
 }
+
+main {clear: left;}

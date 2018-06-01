@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './Character.css';
+import styles from './Character.css';
 
 export default class Characters extends Component {
   render() {
     const { name, species, origin, location, image } = this.props.character;
 
     return (
-      <li>
+      <li className={styles['results-li']}>
         <h2>Name: {name}</h2>
         <p>Species: {species}</p>
         <p>Origin: {origin.name}</p>
