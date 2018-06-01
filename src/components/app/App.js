@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import logo from './logo.jpg';
 import './App.css';
 import Characters from '../characters/Characters';
-// import { searchCharacters, searchEpisodes, searchLocations } from '../services/rmAPI';
 
 // TODO:
 // Copy/create search bars for locations and episodes

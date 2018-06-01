@@ -7,12 +7,12 @@ import Paging from '../search/Paging';
 export default class Characters extends Component {
   state = {
     search: '',
+    page: 1,
     loading: false,
     characterResults: [],
+    error: null,
     totalResults: null,
-    page: 1,
-    pages: null,
-    error: null
+    pages: null
   };
 
   handleCharacterSearch = ({ search }) => {
