@@ -7,23 +7,23 @@ const throwJson = json => { throw json ; };
 const get = url => fetch(url)
   .then(r => r.ok ? r.json() : r.json().then(throwJson));
 
-export function searchCharacters({ character }, { page = 1 }) {
-  const search = `?name=${character}`;
+export function searchCharacters({ search }, { page = 1 }) {
+  const query = `?name=${search}`;
   const paging = `page=${page}`;
 
-  return  get(`${BASE_URL}${CHARACTERS_URL}${search}&${paging}`);
+  return  get(`${BASE_URL}${CHARACTERS_URL}${query}&${paging}`);
 }
 
-export function searchEpisodes({ episode }, { page = 1 }) {
-  const search = `?name=${episode}`;
+export function searchEpisodes({ search }, { page = 1 }) {
+  const query = `?name=${search}`;
   const paging = `page=${page}`;
 
-  return get(`${BASE_URL}${EPISODES_URL}${search}&${paging}`);
+  return get(`${BASE_URL}${EPISODES_URL}${query}&${paging}`);
 }
 
-export function searchLocations({ location }, { page = 1 }) {
-  const search = `?name=${location}`;
+export function searchLocations({ search }, { page = 1 }) {
+  const query = `?name=${search}`;
   const paging = `page=${page}`;
 
-  return get(`${BASE_URL}${LOCATION_URL}${search}&${paging}`);
+  return get(`${BASE_URL}${LOCATION_URL}${query}&${paging}`);
 }

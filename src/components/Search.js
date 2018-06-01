@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Characters extends Component {
+export default class Search extends Component {
   state = {
     search: ''
   };
@@ -23,7 +23,7 @@ export default class Characters extends Component {
         onSubmit={event => this.handleSubmit(event)}
       >
         <label>
-          Squanch Characters:
+          Squanch the Rick and Morty API:
           <input value={search} onChange={this.handleChange}/>
         </label>
         <button>Squanch</button>

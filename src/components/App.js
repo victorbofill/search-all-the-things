@@ -1,38 +1,35 @@
 import React, { Component } from 'react';
-import Paging from './Paging';
-import { searchCharacters } from '../services/rmAPI';
-import SearchCharacters from './SearchCharacters';
-import CharacterResults from './CharacterResults';
+// import { BrowserRouter as Router } from 'react-router-dom';
 import logo from './logo.jpg';
 import './App.css';
+import Search from './Search';
+import { searchCharacters } from '../services/rmAPI';
 // import { searchCharacters, searchEpisodes, searchLocations } from '../services/rmAPI';
-// import { BrowserRouter as Router } from 'react-router-dom';
+import CharacterResults from './CharacterResults';
+import Paging from './Paging';
 
 // TODO:
-// Clean up search code; remove 'character' from everything that doesn't need it
 // Copy/create search bars for locations and episodes
 // Create router to switch between search criteria, with nav bar
 // Search functionality for all three criteria
 
 export default class App extends Component {
   state = {
-    loading: false,
-    character: '',
-    episode: '',
-    location: '',
-    error: null,
+    search: '',
     page: 1,
     characterResults: [],
     totalResults: null,
-    pages: null
+    pages: null,
+    loading: false,
+    error: null
   };
 
   characterSearch = () => {
-    const { character, page } = this.state;
+    const { search, page } = this.state;
 
     this.setState({ loading: true });
 
-    searchCharacters({ character }, { page })
+    searchCharacters({ search }, { page })
       .then(({ info, results }) => {
         this.setState({ characterResults: results, error: null, totalResults: info.count, pages: info.pages });
       }, error => {
@@ -42,7 +39,7 @@ export default class App extends Component {
   };
 
   handleCharacterSearch = ({ search }) => {
-    this.setState({ character: search }, this.characterSearch);
+    this.setState({ search: search }, this.characterSearch);
   };
 
   handlePage = ({ page }) => {
@@ -56,29 +53,31 @@ export default class App extends Component {
       <main>
         <header><img src={logo} /></header>
 
-
-        <fieldset>
-          <div className="search-characters-container">
-            <SearchCharacters onSearch={this.handleCharacterSearch}/>
-          </div>
-        </fieldset>
-        <section>
-          {character && 
+        <section className="character-container">
+          <fieldset>
+            <div>
+              <Search onSearch={this.handleCharacterSearch}/>
+            </div>
+          </fieldset>
+          <section>
+            {character && 
                       <Paging
                         totalResults={totalResults}
                         page={page}
                         search={character}
                         onPage={this.handlePage}
                       />
-          }
+            }
+          </section>
+          <section>
+            {loading && <div className="loading">Loading...</div>}
+            {error && <div>Error: {error.message}</div>}
+          </section>
+          <section>
+            <CharacterResults characterResults={characterResults}/>
+          </section>
         </section>
-        <section className="notifications">
-          {loading && <div className="loading">Loading...</div>}
-          {error && <div>Error: {error.message}</div>}
-        </section>
-        <section className="character-results">
-          <CharacterResults characterResults={characterResults}/>
-        </section>
+
       </main>
     );
   }
