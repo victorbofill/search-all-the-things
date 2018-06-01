@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-// import { BrowserRouter as Router } from 'react-router-dom';
-import logo from './logo.jpg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import Header from './Header';
 import Characters from '../characters/Characters';
+
+import './App.css';
 
 // TODO:
 // Copy/create search bars for locations and episodes
@@ -13,14 +14,19 @@ export default class App extends Component {
 
   render() {
     return (
-      <main>
-        <header><img src={logo} /></header>
-
-        <section>
-          <Characters />
-        </section>
-
-      </main>
+      <Router>
+        <div>
+          <Header />
+          <main>
+            <Switch>
+              <section>
+                <Route path="/characters" component={Characters}/>
+                <Redirect to="/characters"/>
+              </section>
+            </Switch>
+          </main>
+        </div>
+      </Router>
     );
   }
 }
