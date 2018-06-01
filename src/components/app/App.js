@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
 import Characters from '../characters/Characters';
+import Episodes from '../episodes/Episodes';
 
 import './App.css';
 
@@ -21,6 +22,7 @@ export default class App extends Component {
             <Switch>
               <section>
                 <Route path="/characters" component={Characters}/>
+                <Route path="/episodes" component={Episodes}/>
                 <Redirect to="/characters"/>
               </section>
             </Switch>

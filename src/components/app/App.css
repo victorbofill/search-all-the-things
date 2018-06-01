@@ -6,6 +6,7 @@ header {
 
 header img {
   max-height: 10em;
+  display: block;
 }
 
 .loading {
