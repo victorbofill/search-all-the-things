@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Header from './Header';
 import Characters from '../characters/Characters';
 import Episodes from '../episodes/Episodes';
+import Locations from '../locations/Locations';
 
 import './App.css';
 
 // TODO:
-// Copy/create search bars for locations and episodes
 // Create router to switch between search criteria, with nav bar
 // Search functionality for all three criteria
 
@@ -23,6 +23,7 @@ export default class App extends Component {
               <section>
                 <Route path="/characters" component={Characters}/>
                 <Route path="/episodes" component={Episodes}/>
+                <Route path="/locations" component={Locations}/>
                 <Redirect to="/characters"/>
               </section>
             </Switch>
