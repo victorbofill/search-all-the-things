@@ -10,7 +10,7 @@ export default class Characters extends Component {
         <table>
           <thead>
             <tr>
-              <th colspan="2">
+              <th colSpan="2">
                 <h2>{name}</h2>
                 <img src={image}/>
               </th>
@@ -25,7 +25,7 @@ export default class Characters extends Component {
             <td>{origin.name}</td>
           </tr>
           <tr>
-            <td>LAST KNOWN LOCATION</td>
+            <td>LOCATION</td>
             <td>{location.name}</td>
           </tr>
         </table>

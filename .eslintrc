@@ -11,7 +11,8 @@
   },
   "env": {
     "es6": true,
-    "browser": true
+    "browser": true,
+    "jest": true
   },
   "plugins": [
     "babel"
@@ -40,7 +41,6 @@
             "for": { "after": false },
             "while": { "after": false },
             "do": { "after": false },
-            "switch": { "after": false },
             "catch": { "after": false }
           } 
         }

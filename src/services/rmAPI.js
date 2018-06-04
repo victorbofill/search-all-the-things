@@ -14,6 +14,11 @@ export function searchCharacters({ search }, { page = 1 }) {
   return  get(`${BASE_URL}${CHARACTERS_URL}${query}&${paging}`);
 }
 
+export function checkSearchCharacters(response) {
+  if(response.Response === 'False') throw response.Error;
+  return response;
+}
+
 export function searchEpisodes({ search }, { page = 1 }) {
   const query = `?name=${search}`;
   const paging = `page=${page}`;
@@ -21,9 +26,20 @@ export function searchEpisodes({ search }, { page = 1 }) {
   return get(`${BASE_URL}${EPISODES_URL}${query}&${paging}`);
 }
 
+export function checkSearchEpisodes(response) {
+  if(response.Response === 'False') throw response.Error;
+  return response;
+}
+
 export function searchLocations({ search }, { page = 1 }) {
   const query = `?name=${search}`;
   const paging = `page=${page}`;
 
   return get(`${BASE_URL}${LOCATION_URL}${query}&${paging}`);
+}
+
+
+export function checkSearchLocations(response) {
+  if(response.Response === 'False') throw response.Error;
+  return response;
 }
