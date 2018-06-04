@@ -19,6 +19,11 @@ export function checkSearchCharacters(response) {
   return response;
 }
 
+export function getCharacter(id) {
+  const url = `${BASE_URL}${CHARACTERS_URL}${id}`;
+  return get(url);
+}
+
 export function searchEpisodes({ search }, { page = 1 }) {
   const query = `?name=${search}`;
   const paging = `page=${page}`;

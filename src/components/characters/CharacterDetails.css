@@ -1,37 +1,32 @@
-:local(.results-li) {
+:local(.character-detail) {
   border-radius: 5px 5px;
   background-color: #222222;
   color: white;
-  float: left;
   list-style-type: none;
-  margin: .5em;
+  margin: .5em auto;
   padding: .5em;
+  width: 300px;
 }
 
-:local(.results-li) th {
+:local(.character-detail) th {
   text-align: center;
 }
 
-:local(.results-li) h2 {
+:local(.character-detail) h2 {
   background-color: rgb(34, 34, 34, .75);
   margin: 0;
   position: absolute;
 }
 
-:local(.results-li) td {
+:local(.character-detail) td {
   padding-bottom: .5em;
 }
 
-:local(.results-li) td:first-child {
+:local(.character-detail) td:first-child {
   color: white;
 }
 
-:local(.results-li) td:nth-child(2) {
+:local(.character-detail) td:nth-child(2) {
   color: orange;
   text-align: right;
-}
-
-:local(.results-li) a, a:visited {
-  color: white;
-  text-decoration: none;
 }
