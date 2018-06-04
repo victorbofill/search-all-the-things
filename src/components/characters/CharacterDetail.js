@@ -19,12 +19,6 @@ export default class CharacterDetail extends Component {
       .then(character => this.setState({ character }));
   }
 
-  handleBack = event => {
-    event.PreventDefault();
-    event.stopPropagation();
-    this.props.history.goBack();
-  };
-
   render() {
     const { character } = this.state;
 
