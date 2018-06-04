@@ -12,7 +12,8 @@ export default class Episodes extends Component {
     episodeResults: [],
     error: null,
     totalResults: null,
-    pages: null
+    pages: null,
+    searchType: 'EPISODES'
   };
 
   handleEpisodeSearch = ({ search }) => {
@@ -38,13 +39,13 @@ export default class Episodes extends Component {
   };
 
   render() {
-    const { search, totalResults, page, error, loading, episodeResults } = this.state;
+    const { search, totalResults, page, error, loading, episodeResults, searchType } = this.state;
 
     return (
       <section className="episode-container">
         <fieldset>
           <div>
-            <Search onSearch={this.handleEpisodeSearch}/>
+            <Search onSearch={this.handleEpisodeSearch} searchType={searchType}/>
           </div>
         </fieldset>
 

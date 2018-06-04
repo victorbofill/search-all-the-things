@@ -17,6 +17,7 @@ export default class Search extends Component {
 
   render() {
     const { search } = this.state;
+    const { searchType } = this.props;
 
     return (
       <form
@@ -24,7 +25,7 @@ export default class Search extends Component {
         onSubmit={event => this.handleSubmit(event)}
       >
         <label>
-          SQUANCH THE RICK AND MORTY API:
+          SQUANCH {searchType}:
           <input value={search} onChange={this.handleChange}/>
         </label>
         <button>Squanch</button>

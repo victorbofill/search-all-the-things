@@ -12,7 +12,8 @@ export default class Locations extends Component {
     locationResults: [],
     error: null,
     totalResults: null,
-    pages: null
+    pages: null,
+    searchType: 'LOCATIONS'
   };
 
   handleLocationSearch = ({ search }) => {
@@ -38,13 +39,13 @@ export default class Locations extends Component {
   };
 
   render() {
-    const { search, totalResults, page, error, loading, locationResults } = this.state;
+    const { search, totalResults, page, error, loading, locationResults, searchType } = this.state;
 
     return (
       <section className="location-container">
         <fieldset>
           <div>
-            <Search onSearch={this.handleLocationSearch}/>
+            <Search onSearch={this.handleLocationSearch} searchType={searchType}/>
           </div>
         </fieldset>
 

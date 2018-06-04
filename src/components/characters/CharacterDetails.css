@@ -5,7 +5,7 @@
   list-style-type: none;
   margin: .5em auto;
   padding: .5em;
-  width: 300px;
+  width: fit-content;
 }
 
 :local(.character-detail) th {
@@ -29,4 +29,13 @@
 :local(.character-detail) td:nth-child(2) {
   color: orange;
   text-align: right;
+}
+
+:local(.character-detail) ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+:local(.character-detail) li {
+  margin-top: 3px;
 }

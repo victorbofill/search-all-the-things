@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getCharacter } from '../../services/rmAPI';
+
 import styles from './CharacterDetails.css';
 
 export default class CharacterDetail extends Component {
@@ -48,16 +49,15 @@ export default class CharacterDetail extends Component {
               <td>LOCATION</td>
               <td>{character.location.name}</td>
             </tr>
-            <tr>
-              <td>STATUS</td>
-              <td>{character.status}</td>
-            </tr>
-            <tr>
-              <td>GENDER</td>
-              <td>{character.gender}</td>
-            </tr>
           </tbody>
         </table>
+
+        <ul>
+          <li>EPISODES:</li>
+          {character.episode.map((episode, i) => (
+            <li key={i}>{episode}</li>))}
+        </ul>
+
       </div>
     );
   }

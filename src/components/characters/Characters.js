@@ -12,7 +12,8 @@ export default class Characters extends Component {
     characterResults: [],
     error: null,
     totalResults: null,
-    pages: null
+    pages: null,
+    searchType: 'CHARACTERS'
   };
 
   handleCharacterSearch = ({ search }) => {
@@ -38,13 +39,13 @@ export default class Characters extends Component {
   };
 
   render() {
-    const { search, totalResults, page, error, loading, characterResults } = this.state;
+    const { search, totalResults, page, error, loading, characterResults, searchType } = this.state;
 
     return (
       <section className="character-container">
         <fieldset>
           <div>
-            <Search onSearch={this.handleCharacterSearch}/>
+            <Search onSearch={this.handleCharacterSearch} searchType={searchType}/>
           </div>
         </fieldset>
 
