@@ -25,7 +25,7 @@ export default class Search extends Component {
         onSubmit={event => this.handleSubmit(event)}
       >
         <label>
-          SQUANCH {searchType}:
+          SQUANCH {searchType.toUpperCase()}S:
           <input value={search} onChange={this.handleChange}/>
         </label>
         <button>Squanch</button>
