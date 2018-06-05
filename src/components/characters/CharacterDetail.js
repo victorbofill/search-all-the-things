@@ -21,7 +21,7 @@ export default class CharacterDetail extends Component {
   }
 
   extractEpisodeNumber(episodeURL) {
-    return episodeURL.split('').splice(40);
+    return episodeURL.split('').splice(40).join('');
   }
 
   render() {
@@ -59,7 +59,11 @@ export default class CharacterDetail extends Component {
         <ul>
           <li>EPISODES:</li>
           {character.episode.map((episode, i) => (
-            <li key={i}><a href={`/episodes/${this.extractEpisodeNumber(episode)}`}>EPISODE {this.extractEpisodeNumber(episode)}</a></li>))}
+            <li key={i}>
+              <a href={`/episodes/${this.extractEpisodeNumber(episode)}`}>
+                EPISODE {this.extractEpisodeNumber(episode)}
+              </a>
+            </li>))}
         </ul>
 
       </div>
