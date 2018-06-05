@@ -39,3 +39,8 @@
 :local(.character-detail) li {
   margin-top: 3px;
 }
+
+:local(.character-detail) a, a:visited {
+  color: orange;
+  text-decoration: none
+}

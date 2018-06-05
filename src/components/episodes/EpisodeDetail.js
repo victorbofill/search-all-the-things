@@ -20,8 +20,6 @@ export default class EpisodeDetail extends Component {
   render() {
     const { episode } = this.state;
 
-    console.log("EPISODE: ", episode);
-
     if(episode === null) return null;
 
     return (

@@ -20,6 +20,10 @@ export default class CharacterDetail extends Component {
       .then(character => this.setState({ character }));
   }
 
+  extractEpisodeNumber(episodeURL) {
+    return episodeURL.split('').splice(40);
+  }
+
   render() {
     const { character } = this.state;
 
@@ -55,7 +59,7 @@ export default class CharacterDetail extends Component {
         <ul>
           <li>EPISODES:</li>
           {character.episode.map((episode, i) => (
-            <li key={i}>{episode}</li>))}
+            <li key={i}><a href={`/episodes/${this.extractEpisodeNumber(episode)}`}>EPISODE {this.extractEpisodeNumber(episode)}</a></li>))}
         </ul>
 
       </div>
