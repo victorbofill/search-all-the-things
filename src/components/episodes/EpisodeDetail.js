@@ -26,7 +26,7 @@ export default class EpisodeDetail extends Component {
       <div className={styles['episode-detail']}>
         <h2>{episode.name}</h2>
         <p>{episode.episode}</p>
-        <p>Air Date: {episode.air_date}</p>
+        <p>AIR DATE: {episode.air_date}</p>
       </div>
     );
   }
