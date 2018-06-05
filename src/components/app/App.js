@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Header from './Header';
 import Home from '../home/Home';
 import Characters from '../characters/Characters';
+import CharacterDetail from '../characters/CharacterDetail';
 import Episodes from '../episodes/Episodes';
 import Locations from '../locations/Locations';
-import CharacterDetail from '../characters/CharacterDetail';
+import EpisodeDetail from '../episodes/EpisodeDetail';
 
 import './App.css';
 
@@ -23,8 +24,9 @@ export default class App extends Component {
                 return <CharacterDetail characterID={match.params.id}/>;
               }}/>
               <Route path="/characters" component={Characters}/>
+              <Route path="/episodes/:id" component={EpisodeDetail}/>
               <Route path="/episodes" component={Episodes}/>
-              <Route path="/locations" component={Locations}/>
+              <Route exact path="/locations" component={Locations}/>
               <Redirect to="/"/>
             </Switch>
           </main>

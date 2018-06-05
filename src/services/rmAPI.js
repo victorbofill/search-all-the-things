@@ -16,6 +16,11 @@ export function getCharacter(id) {
   return get(url);
 }
 
+export function getEpisode(id) {
+  const url = `${BASE_URL}episode/${id}`;
+  return get(url);
+}
+
 export function checkSearchAPI(response) {
   if(response.Response === 'False') throw response.Error;
   return response;

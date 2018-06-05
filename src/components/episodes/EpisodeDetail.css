@@ -1,0 +1,16 @@
+:local(.episode-detail) {
+  border-radius: 5px 5px;
+  background-color: #222222;
+  color: white;
+  margin: .5em auto;
+  padding: .5em;
+  width: fit-content;
+}
+
+:local(.episode-detail) h2 {
+  margin: 0;
+}
+
+:local(.episode-detail) p {
+  color: orange;
+}
