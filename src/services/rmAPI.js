@@ -11,10 +11,10 @@ export function searchAPI({ search }, { page = 1 }, { searchType }) {
   return  get(`${BASE_URL}${searchType}${query}&${paging}`);
 }
 
-// export function getCharacter(id) {
-//   const url = `${BASE_URL}${CHARACTERS_URL}${id}`;
-//   return get(url);
-// }
+export function getCharacter(id) {
+  const url = `${BASE_URL}character/${id}`;
+  return get(url);
+}
 
 export function checkSearchAPI(response) {
   if(response.Response === 'False') throw response.Error;
