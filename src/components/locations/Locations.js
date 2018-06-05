@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Search from '../search/Search';
-import { searchLocations } from '../../services/rmAPI';
+import { searchAPI } from '../../services/rmAPI';
 import LocationResults from './LocationResults';
 import Paging from '../search/Paging';
 
@@ -13,7 +13,7 @@ export default class Locations extends Component {
     error: null,
     totalResults: null,
     pages: null,
-    searchType: 'LOCATIONS'
+    searchType: 'location'
   };
 
   handleLocationSearch = ({ search }) => {
@@ -21,11 +21,11 @@ export default class Locations extends Component {
   };
 
   locationSearch = () => {
-    const { search, page } = this.state;
+    const { search, page, searchType } = this.state;
 
     this.setState({ loading: true });
 
-    searchLocations({ search }, { page })
+    searchAPI({ search }, { page }, { searchType })
       .then(({ info, results }) => {
         this.setState({ locationResults: results, error: null, totalResults: info.count, pages: info.pages });
       }, error => {

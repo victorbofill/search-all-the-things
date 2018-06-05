@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Search from '../search/Search';
-import { searchEpisodes } from '../../services/rmAPI';
+import { searchAPI } from '../../services/rmAPI';
 import EpisodeResults from './EpisodeResults';
 import Paging from '../search/Paging';
 
@@ -13,7 +13,7 @@ export default class Episodes extends Component {
     error: null,
     totalResults: null,
     pages: null,
-    searchType: 'EPISODES'
+    searchType: 'episode'
   };
 
   handleEpisodeSearch = ({ search }) => {
@@ -21,11 +21,11 @@ export default class Episodes extends Component {
   };
 
   episodeSearch = () => {
-    const { search, page } = this.state;
+    const { search, page, searchType } = this.state;
 
     this.setState({ loading: true });
 
-    searchEpisodes({ search }, { page })
+    searchAPI({ search }, { page }, { searchType })
       .then(({ info, results }) => {
         this.setState({ episodeResults: results, error: null, totalResults: info.count, pages: info.pages });
       }, error => {

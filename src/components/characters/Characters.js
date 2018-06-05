@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Search from '../search/Search';
-import { searchCharacters } from '../../services/rmAPI';
+import { searchAPI } from '../../services/rmAPI';
 import CharacterResults from './CharacterResults';
 import Paging from '../search/Paging';
 
@@ -13,7 +13,7 @@ export default class Characters extends Component {
     error: null,
     totalResults: null,
     pages: null,
-    searchType: 'CHARACTERS'
+    searchType: 'character'
   };
 
   handleCharacterSearch = ({ search }) => {
@@ -21,11 +21,11 @@ export default class Characters extends Component {
   };
 
   characterSearch = () => {
-    const { search, page } = this.state;
+    const { search, page, searchType } = this.state;
 
     this.setState({ loading: true });
 
-    searchCharacters({ search }, { page })
+    searchAPI({ search }, { page }, { searchType })
       .then(({ info, results }) => {
         this.setState({ characterResults: results, error: null, totalResults: info.count, pages: info.pages });
       }, error => {
